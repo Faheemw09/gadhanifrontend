@@ -50,8 +50,8 @@ const Cart = () => {
       discount += originalPrice - discountedPrice;
     });
 
-    setTotalPrice(price);
-    setTotalDiscount(discount);
+    setTotalPrice(price.toFixed(2));
+    setTotalDiscount(discount.toFixed(2));
   };
 
   const handleRemove = async (item) => {
@@ -122,11 +122,14 @@ const Cart = () => {
         return;
       }
 
-      const response = await axios.post("https://gdhanibackend.onrender.com/api/order", {
-        userId,
-        items: cartItems,
-        totalAmount: finalAmount,
-      });
+      const response = await axios.post(
+        "https://gdhanibackend.onrender.com/api/order",
+        {
+          userId,
+          items: cartItems,
+          totalAmount: finalAmount,
+        }
+      );
       console.log(response);
       if (response.status === 200) {
         setCartItems([]);
@@ -134,6 +137,7 @@ const Cart = () => {
         setTotalDiscount(0);
         message.success("Order placed successfully! returning home");
         navigate("/home");
+        decrementCartCount();
       } else {
         message.error("Failed to place the order.");
       }
@@ -178,7 +182,8 @@ const Cart = () => {
                       </p>
                       <p className="font-bold">Quantity: {quantity}</p>
                       <p className="text-blue-600 font-semibold">
-                        Discounted Price: ₹{discountedPrice * quantity}
+                        Discounted Price: ₹
+                        {(discountedPrice * quantity).toFixed(2)}
                       </p>
                     </div>
                     <button
