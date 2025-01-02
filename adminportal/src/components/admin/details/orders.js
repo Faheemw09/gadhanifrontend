@@ -100,13 +100,6 @@ const Orders = () => {
     <div className="p-4">
       <div className="mb-4 flex items-center space-x-4">
         <div className="flex items-center p-2 border rounded-md shadow-md max-w-xs w-full">
-          <img
-            src="/images/searchImg.png"
-            width={20}
-            height={20}
-            alt="search icon"
-            className="mr-2"
-          />
           <input
             type="text"
             placeholder="Search orders"
