@@ -198,31 +198,32 @@ const Cart = () => {
             </div>
           )}
         </div>
-
-        <div className="w-full md:w-1/3 bg-white shadow-md rounded-md p-6">
-          <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-          <div className="space-y-2">
-            <div className="flex justify-between text-gray-700">
-              <span>Total Price:</span>
-              <span>₹{totalPrice}</span>
+        {cartItems.length > 0 && (
+          <div className="w-full md:w-1/3 bg-white shadow-md rounded-md p-6">
+            <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
+            <div className="space-y-2">
+              <div className="flex justify-between text-gray-700">
+                <span>Total Price:</span>
+                <span>₹{totalPrice}</span>
+              </div>
+              <div className="flex justify-between text-gray-700">
+                <span>Total Discount:</span>
+                <span className="text-green-500">-₹{totalDiscount}</span>
+              </div>
+              <hr />
+              <div className="flex justify-between text-gray-900 font-bold">
+                <span>Final Amount:</span>
+                <span>₹{finalAmount.toFixed(2)}</span>
+              </div>
             </div>
-            <div className="flex justify-between text-gray-700">
-              <span>Total Discount:</span>
-              <span className="text-green-500">-₹{totalDiscount}</span>
-            </div>
-            <hr />
-            <div className="flex justify-between text-gray-900 font-bold">
-              <span>Final Amount:</span>
-              <span>₹{finalAmount}</span>
-            </div>
+            <button
+              onClick={handleOrderNow}
+              className="mt-6 w-full bg-[#009444] text-white py-2 rounded-md"
+            >
+              Order Now
+            </button>
           </div>
-          <button
-            onClick={handleOrderNow}
-            className="mt-6 w-full bg-[#009444] text-white py-2 rounded-md"
-          >
-            Order Now
-          </button>
-        </div>
+        )}
       </div>
     </>
   );

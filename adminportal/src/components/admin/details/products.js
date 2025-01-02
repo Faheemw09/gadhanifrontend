@@ -282,7 +282,7 @@ const Products = () => {
         responsive
       />
 
-      {/* Add Product Drawer */}
+     
       <Drawer
         title="Add Product Details"
         placement="right"
