@@ -93,12 +93,12 @@ const Navbar = () => {
           </li>
 
           <li className="list-none">
-            <Link
+            {/* <Link
               to="/admin/dashboard"
               className="flex items-center hover:text-gray-300 transition-colors duration-200"
             >
               <span className="material-icons mr-2">admin</span>
-            </Link>
+            </Link> */}
           </li>
         </div>
       </div>
